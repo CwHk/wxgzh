@@ -1,0 +1,85 @@
+@mixin box ($box-sizing) {
+    -webkit-box-sizing: $box-sizing;
+    -moz-box-sizing: $box-sizing;
+    -ms-box-sizing: $box-sizing;
+    -o-box-sizing: $box-sizing;
+    box-sizing: $box-sizing;
+}
+
+@mixin flex () {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin justify-content ($justify-content) {
+    -webkit-justify-content: $justify-content;
+    justify-content: $justify-content;
+    -moz-box-pack: $justify-content;
+    -webkit--moz-box-pack: $justify-content;
+    box-pack: $justify-content;
+}
+
+@mixin align-items ($align-items) {
+    align-items: $align-items;
+    -webkit-align-items: $align-items;
+}
+
+@mixin flex-flow ($wrap) {
+    -webkit-flex-flow: $wrap;
+    -moz-flex-flow: $wrap;
+    -ms-flex-flow: $wrap;
+    -o-flex-flow: $wrap;
+    flex-flow: $wrap;
+}
+
+@mixin align-content ($align-content) {
+    -webkit-align-content: $align-content;
+    -moz-align-content: $align-content;
+    -ms-align-content: $align-content;
+    -o-align-content: $align-content;
+    align-content: $align-content;
+}
+
+@mixin order ($order) {
+    -webkit-box-ordinal-group: $order;
+    -moz-box-ordinal-group: $order;
+    -ms-flex-order: $order;
+    -webkit-order: $order;
+    order: $order;
+}
+
+@mixin align-self ($align-self) {
+    -webkit-align-self: $align-self;
+    align-self: $align-self;
+}
+
+@mixin flex3 ($num) {
+    -webkit-box-flex: $num;
+    /* OLD - ios 6-, Safari 3.1-6 */
+    -webkit-flex: $num;
+    /* Chrome */
+    -moz-box-flex: $num;
+    /* Firefox 19- */
+    -ms-flex: $num;
+    /* IE 10 */
+    flex: $num;
+}
+
+
+/*
+pxToRem 实际像素转rem函数 $base-font-size 为基准像素 = 设计稿实际像素/10
+ */
+
+@function pxToRem($px, $base-font-size: 64px) {
+    @if (unitless($px)) {
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+        @return px2em($px + 0px); // That may fail. 
+    }
+    @else if (unit($px)==rem) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}

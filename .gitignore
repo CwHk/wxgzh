@@ -1,0 +1,15 @@
+
+node_modules/
+dist/
+PNG/
+package.json
+
+.project
+*.log
+platforms/
+plugins/
+
+
+
+/mtk/     #过滤整个文件夹
+*.zip     #过滤所有.zip文件
