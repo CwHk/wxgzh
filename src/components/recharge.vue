@@ -1,45 +1,75 @@
 <template>
-   <section>
-      <div class="container">
-          <div class="list">
-            <div class="item">
-              <div class="left">
-                <img src="../assets/images/jfdhzj.png">
-              </div>
-              <div class="center">
-                <span>200积分</span>
-                <p class="info">极品套装,加攻击力30,加血100,加敏捷度100。</p>
-              </div>
-              <!-- <div class="right"> -->
-                <button class="right">点击兑换</button>
-              <!-- </div> -->
-              <div class="line"></div>
-            </div>
-            <div class="item">
-              <div class="left">
-                <img src="../assets/images/jfdhzj.png">
-              </div>
-              <div class="center">
-                <span>200积分</span>
-                <p class="info">极品套装,加攻击力30,加血100,加敏捷度100。</p>
-              </div>
-              <button class="right">点击兑换</button>
-              <div class="line"></div>
-            </div>
-            <div class="item">
-              <div class="left">
-                <img src="../assets/images/jfdhzj.png">
-              </div>
-              <div class="center">
-                <span>200积分</span>
-                <p class="info">极品套装,加攻击力30,加血100,加敏捷度100。</p>
-              </div>
-              <button class="right" @click="goReDuiHuan">点击兑换</button>
-              <div class="line"></div>
-            </div>
+  <section>
+    <div class="container">
+      <div class="list">
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
           </div>
+          <div class="center">
+            <p>兑换极品套装一套,花费积分5分</p>
+            <div class="info">时间： <span class="date">2017-12-1</span></div>
+          </div>
+          <div class="right">
+            <div class="status">已发送</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p>兑换极品套装一套,花费积分5分</p>
+            <div class="info">时间： <span class="date">2017-12-1</span></div>
+          </div>
+          <div class="right">
+            <div class="status">已发送</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p>兑换极品套装一套,花费积分5分</p>
+            <div class="info">时间： <span class="date">2017-12-1</span></div>
+          </div>
+          <div class="right">
+            <div class="status">已发送</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p>兑换极品套装一套,花费积分5分</p>
+            <div class="info">时间： <span class="date">2017-12-1</span></div>
+          </div>
+          <div class="right">
+            <div class="status">已发送</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p>兑换极品套装一套,花费积分5分</p>
+            <div class="info">时间： <span class="date">2017-12-1</span></div>
+          </div>
+          <div class="right">
+            <div class="status">已发送</div>
+          </div>
+          <div class="line"></div>
+        </div>
       </div>
-   </section>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -146,23 +176,39 @@ import { Alert} from 'vux'
           width: pxToRem(354px);
           height: pxToRem(72px);
           @include flex3(1);
-          padding: 0 pxToRem(92px) 0 pxToRem(22px) ;
+          padding: 0 pxToRem(62px) 0 pxToRem(22px) ;
           font-size: 18px;  //pxToRem(18px);
-          span{
+          p{
+            height: pxToRem(18px);
+            line-height: pxToRem(18px);
+            margin-top: pxToRem(12px);
+            margin-bottom: pxToRem(16px);
             color: #000;
             font-weight: 600;
+            font-size: pxToRem(18px);
           }
-          p{
+          .info{
+            height: pxToRem(18px);
+            line-height: pxToRem(18px);
             color: #999;
+            span{
+              color: #999;
+            }
           }
         }
         .right{
-          height: 27px;
-          width: 92px;
-          color: #fff;
+          height: pxToRem(72px);
+          // width: 92px;
+          margin-right: pxToRem(50px);
+          padding-top: pxToRem(10px);
+          color: #ff9900;
           line-height: 27px;
-          background: #ff9900;
           font-size: 18px;
+          .status{
+            height: pxToRem(20px);
+            line-height: pxToRem(20px);
+            font-size: pxToRem(20px);
+          }
         }
         .line{
           height: 1px;

@@ -1,107 +1,236 @@
 <template>
   <section>
-      <div class="boxlist">
-          <div class="list">
-              <div class="itembox one">
-                  <router-link :to="{ path:'/guaranTee',query:{number:this.$route.query.number,type:1} }">
-                     <div class="box"><img src="../assets/images/sunhuai.png" alt=""></div>
-                     <p>躺椅损坏</p>
-                  </router-link>
-              </div>
-              <div class="itembox two">
-                  <router-link :to="{ path:'/guaranTee',query:{number:this.$route.query.number,type:2} }">
-                    <div class="box"><img src="../assets/images/suiyibaifang.png" alt=""></div>
-                    <p>随意摆放</p>
-                 </router-link>
-              </div>
-              
+    <div class="container">
+      <div class="list">
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
           </div>
-          <div class="list">
-              <div class="itembox three">
-                  <router-link :to="{ path:'/guaranTee',query:{number:this.$route.query.number,type:3} }">
-                    <div class="box"><img src="../assets/images/busufu.png" alt=""></div>
-                    <p>不舒服</p>
-                  </router-link>
-              </div>
-              <div class="itembox four">
-                  <router-link :to="{ path:'/guaranTee',query:{number:this.$route.query.number,type:4} }">
-                    <div class="box"><img src="../assets/images/qita.png" alt=""></div>
-                    <p>其他问题</p>
-                  </router-link>
-              </div></div>
+          <div class="center">
+            <p class="week">第一周</p>
+            <div class="info">在此帮战中做出卓越贡献</div>
+          </div>
+          <div class="right">
+            <div class="status">+<span class="num">10</span>积分</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p class="week">第一周</p>
+            <div class="info">在此帮战中做出卓越贡献</div>
+          </div>
+          <div class="right">
+            <div class="status">+<span class="num">10</span>积分</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p class="week">第一周</p>
+            <div class="info">在此帮战中做出卓越贡献</div>
+          </div>
+          <div class="right">
+            <div class="status">+<span class="num">10</span>积分</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p class="week">第一周</p>
+            <div class="info">在此帮战中做出卓越贡献</div>
+          </div>
+          <div class="right">
+            <div class="status">+<span class="num">10</span>积分</div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <img src="../assets/images/jfdhzj.png">
+          </div>
+          <div class="center">
+            <p class="week">第一周</p>
+            <div class="info">在此帮战中做出卓越贡献</div>
+          </div>
+          <div class="right">
+            <div class="status">+<span class="num">10</span>积分</div>
+          </div>
+          <div class="line"></div>
+        </div>
       </div>
+    </div>
   </section>
 </template>
 
 <script>
+import { Alert} from 'vux'
   export default {
     name: 'reportingFailure',
+    title: '积分列表',
+    components: {
+      Alert,
+    },
     data() {
-      return {}
+      return {
+      }
     },
     mounted() {},
     methods: {
-  
+      goReDuiHuan(){
+        //路由到兑换页
+      },
+      Illustrate(){
+         this.$vux.alert.show({
+          title: '价格说明',
+          content:"<div class='form-box'><div class='form-top-box'><div class='form-top-time'>时间区域</div><div class='form-top-money'>价格</div>"+
+                  "</div><div class='list-form-item'><div class='form-top-time'>0点到24点</div><div class='form-top-money'>1元／小时，5元封顶</div>"+
+                  "</div>"+
+                  "</div><div class='bot-text'>最终解释权归本公司所有</div>",
+          buttonText:"知道了",
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding now')
+          }
+        })
+      },
+      contact(){
+         this.$vux.alert.show({
+          title: '联系我们',
+          content: "联系电话:<a class='telnum' href='tel:027-51231140'>027-51231140</a>",
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding now')
+          }
+        })
+      },
+      explain(){
+        this.$vux.alert.show({
+          title: '使用说明',
+          content: "<p class='detail-title'>本公司全球首发眯呗共享躺椅，专注解决办公室午休难问题。您只需扫码，1元钱即可拥有一个美好午觉。</p>",
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding now')
+          }
+        })
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import '../assets/css/common.scss';
+  a{
+    color: #bdbdbf;
+  }
   section {
     height: 100%;
     @include flex();
     @include flex-flow(column);
-    background:#fff;
-    .boxlist{
-       padding:pxToRem(178px) pxToRem(108px);
-       .list{
-           display: flex;
-           justify-content:space-between;
-           padding-bottom:pxToRem(50px);
-           .one{
-               background:#f7f7ff;
-           }
-           .two{
-               background: #fef6ff;
-           }
-           .three{
-               background: #fff7f5;
-           }
-           .four{
-             background: #f5ffee;
-           }
-           .itembox{
-              height:pxToRem(238px);
-              width:pxToRem(238px);
-              border-radius: 100%;
-              display: flex;
-              @include flex-flow(column);
-              align-items:center;
-              a{
-                height:pxToRem(238px);
-                width:pxToRem(238px);
-                border-radius: 100%;
-                display: flex;
-                @include flex-flow(column);
-                align-items:center;
-              }
-              p{
-                  color:#474747;
-                  font-size:pxToRem(34px);
-              }
-              .box{
-                  height:pxToRem(144px);
-                  padding-top:pxToRem(52px);
-                  padding-bottom:pxToRem(32px);
-                  width:pxToRem(62px);
-                  img{
-                      width:100%;
-                      height:100%;
-                  }
-              }
-           }
-       }
+    background: #ffeae2;
+    .container{
+      height: 100%;
+      box-sizing: border-box;
+      margin: pxToRem(8px) pxToRem(28px) 0;
+      border-radius: pxToRem(8px) pxToRem(8px) 0 0;
+      background: #fff;
+      padding: 0 pxToRem(7px) 0 pxToRem(31px)
     }
-}
+    .list{
+      height: auto;
+      // padding: 0 ;
+      // text-align:left;
+      background: #fff;
+      .item{
+        padding: pxToRem(15px) 0;
+        height: pxToRem(102px);
+        @include flex();
+        @include align-items(center);
+
+        // @include justify-content(center);
+        position: relative;
+        .left{
+          width: pxToRem(72px);
+          height: pxToRem(72px);
+          img{
+            border-radius: 50%;
+          }
+        }
+        .center{
+          text-align: left;
+          width: pxToRem(354px);
+          height: pxToRem(72px);
+          @include flex3(1);
+          padding: 0 pxToRem(62px) 0 pxToRem(22px) ;
+          p{
+            height: pxToRem(24px);
+            line-height: pxToRem(24px);
+            margin-top: pxToRem(6px);
+            margin-bottom: pxToRem(16px);
+            color: #000;
+            font-weight: 600;
+            font-size: pxToRem(24px);
+          }
+          .info{
+            height: pxToRem(18px);
+            line-height: pxToRem(18px);
+            font-size: pxToRem(18px);
+            color: #999;
+            span{
+              color: #999;
+            }
+          }
+        }
+        .right{
+          height: pxToRem(72px);
+          // width: 92px;
+          margin-right: pxToRem(50px);
+          padding-top: pxToRem(10px);
+          color: #ff9900;
+          line-height: 27px;
+          font-size: pxToRem(20px);
+          .status{
+            height: pxToRem(20px);
+            line-height: pxToRem(20px);
+            font-size: pxToRem(20px);
+          }
+        }
+        .line{
+          height: 1px;
+          width: calc(100% - 0.25rem);
+          background: #d6d6d6;
+          position: absolute;
+          left: pxToRem(18px);
+          bottom: 0;
+          z-index: 99;
+        }
+      }
+      // .right-icon{
+      //   width:pxToRem(24px);
+      //   height:100%;
+      //   background: url(../assets/images/jiantou.png) no-repeat center center;
+      //   background-size: pxToRem(16px) pxToRem(24px);
+      // }
+      // .text{
+      //   @include flex3(1);
+      //   font-size:pxToRem(30px);
+      //   color:#474747;
+      // }
+    }
+  }
 </style>

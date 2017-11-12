@@ -85,7 +85,7 @@ export default new Router({
             path: '/sleepover',
             name: 'sleepOver',
             meta: {
-                title: '睡眠结束'
+                title: '极品套装'
             },
             component: SleepOver
         },
@@ -101,7 +101,7 @@ export default new Router({
             path: '/reporting-failure',
             name: 'reportingFailure',
             meta: {
-                title: '上报故障'
+                title: '积分列表'
             },
             component: ReportingFailure
         },

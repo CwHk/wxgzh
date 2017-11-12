@@ -1,31 +1,64 @@
 <template>
-  <section>
-      <div class="boxlist">
-        <div class="list sleep">睡眠时间 ：{{list.time}}</div>
-        <div class="list consume"><span class="mob" @click="Illustrate">消费金额 ： {{list.money}}元</span></div>
-        <div class="list main">恢复体力 ： {{list.tili}}点</div>
+   <section>
+      <div class="container">
+          <div class="list">
+            <div class="item">
+              <div class="left">
+                <img src="../assets/images/jfdhzj.png">
+              </div>
+              <div class="center">
+                <div class="title">极品套装</div>
+                <p class="info">如果你无法简洁的表达你的想法,那只说明你还不了解它</p>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div class="item">
+              <div class="left">
+                <img src="../assets/images/jfdhzj.png">
+              </div>
+              <div class="center">
+                <div class="title">极品套装</div>
+                <p class="info">如果你无法简洁的表达你的想法,那只说明你还不够了解它</p>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div class="item">
+              <div class="left">
+                <img src="../assets/images/jfdhzj.png">
+              </div>
+              <div class="center">
+                <div class="title">极品套装</div>
+                <p class="info">如果你无法简洁的表达你的想法,那只说明你还不了解它,如果你无法简洁的表达你的想法,那只说明你还不了解它,</p>
+              </div>
+              <div class="line"></div>
+            </div>
+          </div>
       </div>
-      <div class="bottsub"><div class="button"><router-link :to="{ path:'/',query:{number:this.$route.query.number} }">再睡一觉</router-link></div></div>
-  </section>
+   </section>
 </template>
 
 <script>
+import { Alert} from 'vux'
   export default {
     name: 'sleepOver',
+    title: '积分兑换',
+    components: {
+      Alert,
+    },
     data() {
       return {
-        list:{}
       }
     },
-    mounted() {
-      this.getinformation()
-    },
+    mounted() {},
     methods: {
+      goReDuiHuan(){
+        //路由到兑换页
+      },
       Illustrate(){
          this.$vux.alert.show({
           title: '价格说明',
           content:"<div class='form-box'><div class='form-top-box'><div class='form-top-time'>时间区域</div><div class='form-top-money'>价格</div>"+
-                  "</div><div class='list-form-item'><div class='form-top-time'>0点到24点</div><div class='form-top-money'>1元／小时，五元封顶</div>"+
+                  "</div><div class='list-form-item'><div class='form-top-time'>0点到24点</div><div class='form-top-money'>1元／小时，5元封顶</div>"+
                   "</div>"+
                   "</div><div class='bot-text'>最终解释权归本公司所有</div>",
           buttonText:"知道了",
@@ -37,82 +70,120 @@
           }
         })
       },
-        getinformation(){
-          this.$axios.post('http://mibei.mayiclub.cc/index/Order/findOrder',{number:this.$route.query.number})
-          .then((res) => {
-              console.log(res)
-             this.list=res.data.data
-          })
-        }
+      contact(){
+         this.$vux.alert.show({
+          title: '联系我们',
+          content: "联系电话:<a class='telnum' href='tel:027-51231140'>027-51231140</a>",
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding now')
+          }
+        })
+      },
+      explain(){
+        this.$vux.alert.show({
+          title: '使用说明',
+          content: "<p class='detail-title'>本公司全球首发眯呗共享躺椅，专注解决办公室午休难问题。您只需扫码，1元钱即可拥有一个美好午觉。</p>",
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding now')
+          }
+        })
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import '../assets/css/common.scss';
+  a{
+    color: #bdbdbf;
+  }
   section {
     height: 100%;
     @include flex();
     @include flex-flow(column);
-    background:#f7f7f7;
-    .boxlist{
-      height:pxToRem(470px);
+    background: #ffeae2;
+    .container{
+      height: 100%;
+      box-sizing: border-box;
+      margin: pxToRem(8px) pxToRem(28px) 0;
+      border-radius: pxToRem(8px) pxToRem(8px) 0 0;
       background: #fff;
-      padding:pxToRem(110px) pxToRem(100px) 0;
-      .main{
-        background: url(../assets/images/huifutili@2x.png) no-repeat left center;
-        background-size: contain;
-      }
-      .consume{
-         background: url(../assets/images/money@2x.png) no-repeat left center;
-         background-size: contain;
-         position: relative;
-      }
-      .mob{
+      padding: 0 pxToRem(7px) 0 pxToRem(31px)
+    }
+    .list{
+      height: auto;
+      // padding: 0 ;
+      // text-align:left;
+      background: #fff;
+      .item{
+        padding: pxToRem(15px) 0;
+        min-height: pxToRem(102px);
+        @include flex();
+        @include align-items(center);
+
+        // @include justify-content(center);
         position: relative;
-      }
-      .mob:after{
-        content: "";
-        position: absolute;
-        background: url(../assets/images/problem-icon.png) no-repeat left center;
-        background-size: contain;
-        height:pxToRem(30px);
-        width:pxToRem(30px);
-        top:pxToRem(7px);
-        right: pxToRem(-60px);
-      }
-      .sleep{
-        background: url(../assets/images/ciock@2x.png) no-repeat left center;
-        background-size: contain;
-      }
-      .list{
-        padding-left:pxToRem(84px);
-        margin-bottom:pxToRem(40px);
-        height:pxToRem(44px);
-        text-align: left;
-        color: #474747;
-        font-size: pxToRem(32px);
-        line-height:pxToRem(44px);
-      }
-    }
-    .bottsub{
-        padding-top:pxToRem(480px);
-        display: flex;
-        justify-content:  center;
-        .button{
-            width:pxToRem(379px);
-            height:pxToRem(96px);
-            line-height:pxToRem(96px);
-            background:#5ae8be;
-            color:#fff;
-            font-size:pxToRem(34px);
-            border-radius: 50px;
-            box-shadow: 1px 1px 6px #888888;
-            a{
-              color:#fff;
-            }
+        .left{
+          width: pxToRem(75px);
+          height: pxToRem(72px);
+          img{
+
+          }
         }
+        .center{
+          text-align: left;
+          width: pxToRem(282px);
+          min-height: pxToRem(72px);
+          margin-left: pxToRem(22px) ;
+          font-size: pxToRem(18px);  //pxToRem(18px);
+          .title{
+            height: pxToRem(22px);
+            line-height: pxToRem(22px);
+            color: #000;
+            font-weight: 600;
+            margin-bottom: pxToRem(4px);
+          }
+          p{
+            width: 100%;
+            line-height: pxToRem(24px);
+            color: #999;
+          }
+        }
+        .right{
+          height: 27px;
+          width: 92px;
+          color: #fff;
+          line-height: 27px;
+          background: #ff9900;
+          font-size: 18px;
+        }
+        .line{
+          height: 1px;
+          width: calc(100% - 0.25rem);
+          background: #d6d6d6;
+          position: absolute;
+          left: pxToRem(18px);
+          bottom: 0;
+          z-index: 99;
+        }
+      }
+      // .right-icon{
+      //   width:pxToRem(24px);
+      //   height:100%;
+      //   background: url(../assets/images/jiantou.png) no-repeat center center;
+      //   background-size: pxToRem(16px) pxToRem(24px);
+      // }
+      // .text{
+      //   @include flex3(1);
+      //   font-size:pxToRem(30px);
+      //   color:#474747;
+      // }
     }
-    
   }
 </style>
